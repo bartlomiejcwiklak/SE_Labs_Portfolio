@@ -1,5 +1,23 @@
 # React + TypeScript + Vite
 
+## Deploying This Project to GitHub Pages
+
+This repository is configured to deploy this Vite app to GitHub Pages via GitHub Actions.
+The workflow is scoped to `Project/Foodie`, so changes outside this folder do not trigger it.
+
+### One-time GitHub setup
+
+1. Push this project to a GitHub repository.
+2. In GitHub, open repository `Settings` -> `Pages`.
+3. Set `Source` to `GitHub Actions`.
+
+### Deploy
+
+- Every push to `main` triggers deployment.
+- You can also trigger deployment manually from `Actions` -> `Deploy to GitHub Pages`.
+
+The workflow builds the app and publishes `dist/` to GitHub Pages.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
