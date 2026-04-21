@@ -1,9 +1,11 @@
-name: deploy to github pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
+      - Dev1
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -11,33 +13,43 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Project/Foodie
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Node
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: npm
+          cache-dependency-path: Project/Foodie/package-lock.json
+
       - name: Install dependencies
         run: npm ci
+
       - name: Build
-        run: npm run build
+        run: npm run build -- --base="/${{ github.event.repository.name }}/"
+
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: Project/Foodie/dist
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
