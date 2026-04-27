@@ -1,4 +1,4 @@
-import { MapPin, Filter, MessageSquare, ChevronRight, X } from 'lucide-react';
+import { MapPin, Filter, MessageSquare, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 
 interface Props {

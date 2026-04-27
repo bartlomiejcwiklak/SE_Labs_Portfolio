@@ -1,4 +1,4 @@
-import { X, CheckCircle, AlertTriangle, Send } from 'lucide-react';
+import { X, CheckCircle, Send } from 'lucide-react';
 import { useState } from 'react';
 
 interface Props {

@@ -1,6 +1,6 @@
 import type { Restaurant } from '../types';
 
-export const mockResturants: Restaurant[] = [
+export const mockRestaurants: Restaurant[] = [
   {
     id: '1',
     name: 'Campus Bistro',

@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import type { Restaurant } from '../types';
 import { mockRestaurants } from '../data/mockData';
-import { useEffect } from 'react';
+
 
 // Custom Marker Icon
 const createCustomIcon = (isSelected: boolean) => L.divIcon({
@@ -64,7 +64,7 @@ export default function MapComponent({ userLocation, selectedId, onSelect }: Map
         </Marker>
       )}
 
-      {mockRestaurants.map((res) => (
+      {mockRestaurants.map((res: Restaurant) => (
         <Marker 
           key={res.id} 
           position={res.coordinates}
@@ -76,7 +76,7 @@ export default function MapComponent({ userLocation, selectedId, onSelect }: Map
       ))}
 
       {selectedId && (
-        <ChangeView center={mockRestaurants.find(r => r.id === selectedId)?.coordinates || center} />
+        <ChangeView center={mockRestaurants.find((r: Restaurant) => r.id === selectedId)?.coordinates || center} />
       )}
     </MapContainer>
   );

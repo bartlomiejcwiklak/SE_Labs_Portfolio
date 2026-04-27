@@ -1,4 +1,4 @@
-import type { Restaurant, MenuItem, DietaryPreference } from '../types';
+import type { Restaurant, DietaryPreference } from '../types';
 import { X, Filter, Flame, Info, Star, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 
