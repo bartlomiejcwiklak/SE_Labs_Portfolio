@@ -134,7 +134,7 @@ export default function App() {
             boxShadow: theme.shadow
           }}>
             <button
-              onClik={() => setSelectedId(null)}
+              onClick={() => setSelectedId(null)}
               style={{
                 background: 'transparent',
                 border: 'none',
